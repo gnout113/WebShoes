@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    password: Aa123456!
+    url: jdbc:sqlserver://localhost:1433;databaseName=WebShoes
+    username: sa
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        format_sql: true
+    show-sql: true
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp

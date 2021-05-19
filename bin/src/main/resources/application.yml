@@ -1,8 +1,8 @@
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    password: 123
-    url: jdbc:sqlserver://localhost:1433;databaseName=Ananas
+    password: Aa123456!
+    url: jdbc:sqlserver://localhost:1433;databaseName=WebShoes
     username: sa
   jpa:
     generate-ddl: true

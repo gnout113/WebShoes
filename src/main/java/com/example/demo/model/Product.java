@@ -4,10 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "products")
+@Table(name = "Product")
 public class Product {
 
 	@Id
@@ -19,20 +21,22 @@ public class Product {
 	private String color;
 
 	private long price;
+	
+	@OneToOne
+	@JoinColumn(name = "thumbnail_id")
+	private Thumbnail thumbnail;
 
-	private String image;
-
-	public Product() {
-		super();
-	}
-
-	public Product(String name, String color, long price, String image) {
-		super();
-		this.name = name;
-		this.color = color;
-		this.price = price;
-		this.image = image;
-	}
+//	public Product() {
+//		super();
+//	}
+//
+//	public Product(String name, String color, long price, String image) {
+//		super();
+//		this.name = name;
+//		this.color = color;
+//		this.price = price;
+//		this.image = image;
+//	}
 
 	public Long getId() {
 		return id;
@@ -66,12 +70,13 @@ public class Product {
 		this.price = price;
 	}
 
-	public String getImage() {
-		return image;
+	public Thumbnail getThumbnail() {
+		return thumbnail;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setThumbnail(Thumbnail thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 
+	
 }

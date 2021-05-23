@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authenticated()
 				.and()
 			.formLogin()
-				.loginPage("/login")
+//				.loginPage("/product-manager")
 				.loginProcessingUrl("/perform_login")
 				.failureUrl("/login?error=true")
 				.permitAll()

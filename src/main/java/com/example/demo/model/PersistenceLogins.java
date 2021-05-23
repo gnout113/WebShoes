@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
 import javax.persistence.Column;
@@ -11,7 +12,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "persistent_logins")
-public class PersistenceLogins {
+public class PersistenceLogins implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "series", columnDefinition = "varchar(64)")

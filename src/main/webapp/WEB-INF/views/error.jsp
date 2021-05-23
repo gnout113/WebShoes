@@ -18,7 +18,7 @@
     <title>Error Page</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/tags/header.jsp" %>
+<%@ include file="/WEB-INF/tags/header1.jsp" %>
 
 <h1 class="container text-center">
     Page Not Found

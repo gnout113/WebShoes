@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,9 +14,14 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name = "users")
 @SecondaryTable(name = "authorities", pkJoinColumns = @PrimaryKeyJoinColumn(name = "username", referencedColumnName = "username"))
-public class Account {
+public class Account implements Serializable{
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @NotBlank(message = "username not blank")
     private String username;
 

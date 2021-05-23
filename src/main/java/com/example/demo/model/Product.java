@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +12,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Product")
-public class Product {
+public class Product implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,17 +33,27 @@ public class Product {
 	@JoinColumn(name = "thumbnail_id")
 	private Thumbnail thumbnail;
 
-//	public Product() {
-//		super();
-//	}
-//
-//	public Product(String name, String color, long price, String image) {
-//		super();
-//		this.name = name;
-//		this.color = color;
-//		this.price = price;
-//		this.image = image;
-//	}
+	public Product() {
+		super();
+	}
+
+	public Product(String name , String color, long price, Thumbnail thumbnail) {
+		super();
+		this.name = name;
+		this.color = color;
+		this.price = price;
+		this.thumbnail = thumbnail;
+	}
+	
+	public Product(long id, String name , String color, long price, Thumbnail thumbnail) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.color = color;
+		this.price = price;
+		this.thumbnail = thumbnail;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -78,5 +95,4 @@ public class Product {
 		this.thumbnail = thumbnail;
 	}
 
-	
 }

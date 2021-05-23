@@ -20,10 +20,6 @@ public class ProductController {
 	public String allProductList(Model model) {
 
 		List<Product> products = productService.findAllProducts();
-		for(Product p : products) {
-			System.out.println(p.getName());
-			System.out.println(p.getThumbnail().getThumbnail1());
-		}
 		model.addAttribute("products", products);
 		return "product";
 	}

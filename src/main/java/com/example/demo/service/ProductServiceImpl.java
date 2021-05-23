@@ -23,5 +23,27 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> findAllProducts() {	
 		return productRepository.findAll();
 	}
+
+	@Override
+	public List<Product> sortAscByName() {
+		return productRepository.findAllOrderByNameAsc();
+	}
+
+	@Override
+	public List<Product> sortDescByName() {
+		return productRepository.findAllOrderByNameDesc();
+	}
+
+	@Override
+	public List<Product> sortAscByPrice() {
+		// TODO Auto-generated method stub
+		return productRepository.findAllOrderByPriceAsc();
+	}
+
+	@Override
+	public List<Product> sortDescByPrice() {
+		// TODO Auto-generated method stub
+		return  productRepository.findAllOrderByPriceDesc();
+	}
 	
 }

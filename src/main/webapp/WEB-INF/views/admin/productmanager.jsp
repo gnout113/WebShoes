@@ -89,18 +89,18 @@ img {
 									<div class="modal-body">
 										<input type="hidden" class="form-control" name="id"
 											value="${id}">
-										<form:form action="WebShoes/product-manager/update1" modelAttribute="product">
+										<form:form action="WebShoes/product-manager/update1">
 											<div class="mb-3">
 												<label>Product name:</label> <input type="text"
-													class="form-control" name="name" path="name" value="${p.getName()}">
+													class="form-control" name="name" path="product.name" value="${p.getName()}">
 											</div>
 											<div class="mb-3">
 												<label>Color:</label> <input type="text"
-													class="form-control" name="color" value="${p.getColor()}">
+													class="form-control" name="product.color" value="${p.getColor()}">
 											</div>
 											<div class="mb-3">
 												<label>Price:</label> <input type="text"
-													class="form-control" name="price" value="${p.getPrice()}">
+													class="form-control" name="product.price" value="${p.getPrice()}">
 											</div>
 											<div class="mb-3">
 												<label>Thumbnail url 1:</label> <input type="text"

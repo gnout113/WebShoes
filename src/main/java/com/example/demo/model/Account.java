@@ -1,10 +1,12 @@
 package com.example.demo.model;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
@@ -14,14 +16,9 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name = "users")
 @SecondaryTable(name = "authorities", pkJoinColumns = @PrimaryKeyJoinColumn(name = "username", referencedColumnName = "username"))
-public class Account implements Serializable{
+public class Account {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
+    @Id
     @NotBlank(message = "username not blank")
     private String username;
 
@@ -43,6 +40,9 @@ public class Account implements Serializable{
 
     @Column(name = "authority", table = "authorities", columnDefinition = "varchar(50) default 'ROLE_USER'")
     private String authority = "ROLE_USER";
+    
+    @OneToMany(mappedBy = "account")
+    private List<Order> orders = new ArrayList<>();
 
     public String getUsername() {
         return username;
@@ -100,16 +100,4 @@ public class Account implements Serializable{
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Account{" +
-                "username='" + username + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", enabled=" + enabled +
-                ", authority='" + authority + '\'' +
-                '}';
-    }
 }

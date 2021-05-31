@@ -1,12 +1,13 @@
 package com.example.demo.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Product;
 import com.example.demo.repository.ProductRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -20,8 +21,14 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> findAllProducts() {	
+	public List<Product> findAllProducts() {
 		return productRepository.findAll();
+	}
+
+	@Override
+	public Product getProduct(Long id) {
+		Optional<Product> product = productRepository.findById(id);
+		return product.orElse(new Product());
 	}
 
 	@Override
@@ -36,14 +43,13 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> sortAscByPrice() {
-		// TODO Auto-generated method stub
 		return productRepository.findAllOrderByPriceAsc();
 	}
 
 	@Override
 	public List<Product> sortDescByPrice() {
-		// TODO Auto-generated method stub
-		return  productRepository.findAllOrderByPriceDesc();
+		return productRepository.findAllOrderByPriceDesc();
 	}
-	
+
+
 }

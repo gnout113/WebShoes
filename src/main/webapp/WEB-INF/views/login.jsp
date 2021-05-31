@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<%@include file="/WEB-INF/tags/header1.jsp" %>
+<%@include file="/WEB-INF/tags/header.jsp" %>
 <div class="container">
     <div class="" style="margin: 0 auto; width: 500px;">
         <div>

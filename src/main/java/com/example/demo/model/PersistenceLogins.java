@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import java.io.Serializable;
 import java.time.LocalTime;
 
 import javax.persistence.Column;
@@ -12,12 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "persistent_logins")
-public class PersistenceLogins implements Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class PersistenceLogins {
 
 	@Id
 	@Column(name = "series", columnDefinition = "varchar(64)")
@@ -28,7 +22,7 @@ public class PersistenceLogins implements Serializable{
 	private Account username;
 
 	@Column(name = "token", columnDefinition = "varchar(64) not null")
-	private String token;
+	private String token; 
 
 	@Column(name = "last_used", columnDefinition = "datetime")
 	private LocalTime last_used;

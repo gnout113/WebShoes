@@ -19,8 +19,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-
-	// spring security
 	@Autowired
 	private DataSource dataSource;
 	
@@ -29,13 +27,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 				.antMatchers("/anonymous*").anonymous()
-				.antMatchers("/*").permitAll()
+				.antMatchers("/**").permitAll()
 				.antMatchers("/commons/**").permitAll()
 				.anyRequest()
 				.authenticated()
 				.and()
 			.formLogin()
-//				.loginPage("/product-manager")
+				.loginPage("/login")
 				.loginProcessingUrl("/perform_login")
 				.failureUrl("/login?error=true")
 				.permitAll()
